@@ -29,6 +29,10 @@ function autoSearch() {
     }
 }
 
+function dateToEpoch(thedate) {
+    return new Date(thedate.setHours(0,0,0,0));
+ }
+
 async function fetchData() {
 
     try {
@@ -40,6 +44,27 @@ async function fetchData() {
         let search_type = localStorage.getItem('dest_type');
         let hotel_container = document.getElementById('hotel-list');
         hotel_container.innerHTML = "";
+
+
+        let dt_arrive = arrive_date.split('-');
+        dt_arrive = new Date(dt_arrive[0], dt_arrive[1] - 1, dt_arrive[2]);
+        //console.log(dt_arrive.toDateString());
+
+        let dt_depart = depart_date.split('-');
+        dt_depart = new Date(dt_depart[0], dt_depart[1] - 1, dt_depart[2]);
+        //console.log(dt_arrive.toDateString());
+
+        let dt_today = dateToEpoch(new Date());
+        console.log(dt_today);
+
+        console.log(dt_arrive,dt_depart);
+
+        if(dt_arrive.getTime()>=dt_depart.getTime() || dt_arrive.getTime()<dt_today.getTime() || dt_depart.getTime()<dt_today.getTime())
+        {
+            //console.log('same');
+            alert('Arrival date must be today or after today and departure date must be greater than arrival date');
+            return;
+        }
 
         console.log(arrive_date);
         console.log(depart_date);
