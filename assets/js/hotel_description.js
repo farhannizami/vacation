@@ -12,15 +12,20 @@ let i;
 
 
 function autoSearch() {
-    let arrive_date = document.getElementById('arrive-date').value;
-    let depart_date = document.getElementById('depart-date').value;
-    let guest_no = document.getElementById('guest-no').value;
-    let room_no = document.getElementById('room-no').value;
+
+    try {
+        let arrive_date = document.getElementById('arrive-date').value;
+        let depart_date = document.getElementById('depart-date').value;
+        let guest_no = document.getElementById('guest-no').value;
+        let room_no = document.getElementById('room-no').value;
 
 
-    if(arrive_date!=='' && depart_date!=='' && guest_no!=='' && room_no!=='')
-    {
-        fetchData();
+        if (arrive_date !== '' && depart_date !== '' && guest_no !== '' && room_no !== '') {
+            fetchData();
+        }
+    }
+    catch (err) {
+        console.error(err)
     }
 }
 
@@ -142,7 +147,7 @@ function addreviewMasala() {
             console.log(hotel_name);
 
             localStorage.setItem('hotel_id', hotel_id);
-            localStorage.setItem('hotel_name',hotel_name);
+            localStorage.setItem('hotel_name', hotel_name);
             location.href = 'hotel_review.html';
         });
     }

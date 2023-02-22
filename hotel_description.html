@@ -34,8 +34,18 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
+    <!-- For Date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
-    <script defer src="assets/js/hotel_description.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    
+    <!-- Date picker end -->
+
+    <script src="assets/js/hotel_description.js"></script>
+
+
 
 </head>
 
@@ -55,14 +65,14 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="index.html#about">About</a></li>
-                  <li><a href="index.html#service">Services</a></li>
-                  
-                  <li><a href="contact.html" class="">Contact</a></li>
-                  <li><a class="get-a-quote" href="search_hotel.html">Search Hotel</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#service">Services</a></li>
+
+                    <li><a href="contact.html" class="">Contact</a></li>
+                    <li><a class="get-a-quote" href="search_hotel.html">Search Hotel</a></li>
                 </ul>
-              </nav><!-- .navbar -->
+            </nav><!-- .navbar -->
 
         </div>
     </header><!-- End Header -->
@@ -90,38 +100,43 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Arrival Date : YYYY-MM-DD"
-                                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="arrive-date">
-                                        
+                                        <input type="text" class="form-control datepicker" placeholder="Arrival Date : YYYY-MM-DD"
+                                            aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                            id="arrive-date">
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Departure Date : YYYY-MM-DD"
-                                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="depart-date">
-                                        
+                                        <input type="text" class="form-control datepicker"
+                                            placeholder="Departure Date : YYYY-MM-DD" aria-label="Recipient's username"
+                                            aria-describedby="basic-addon2" id="depart-date">
+
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="Number of Guests"
-                                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="guest-no">                                        
+                                            aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                            id="guest-no">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="Number of Room"
-                                            aria-label="Recipient's username" aria-describedby="basic-addon2" id="room-no">                                        
+                                            aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                            id="room-no">
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
 
                             <div class="row">
                                 <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary" onclick="fetchData()" id="hotel-search">Search</button>
+                                    <button type="button" class="btn btn-primary" onclick="fetchData()"
+                                        id="hotel-search">Search</button>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +239,7 @@
             </div>
         </div>
 
-        
+
 
     </footer><!-- End Footer -->
     <!-- End Footer -->
@@ -244,6 +259,12 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
 
 </body>
 
